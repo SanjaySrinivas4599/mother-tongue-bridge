@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MaterialsRouteImport } from './routes/materials'
+import { Route as TranslateRouteImport } from './routes/translate'
+import { Route as VoiceRouteImport } from './routes/voice'
+import { Route as WorkflowRouteImport } from './routes/workflow'
+import { Route as WorkspaceRouteImport } from './routes/workspace'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MaterialsRoute = MaterialsRouteImport.update({
+  id: '/materials',
+  path: '/materials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TranslateRoute = TranslateRouteImport.update({
+  id: '/translate',
+  path: '/translate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoiceRoute = VoiceRouteImport.update({
+  id: '/voice',
+  path: '/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkflowRoute = WorkflowRouteImport.update({
+  id: '/workflow',
+  path: '/workflow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkspaceRoute = WorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/materials': typeof MaterialsRoute
+  '/translate': typeof TranslateRoute
+  '/voice': typeof VoiceRoute
+  '/workflow': typeof WorkflowRoute
+  '/workspace': typeof WorkspaceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/materials': typeof MaterialsRoute
+  '/translate': typeof TranslateRoute
+  '/voice': typeof VoiceRoute
+  '/workflow': typeof WorkflowRoute
+  '/workspace': typeof WorkspaceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/materials': typeof MaterialsRoute
+  '/translate': typeof TranslateRoute
+  '/voice': typeof VoiceRoute
+  '/workflow': typeof WorkflowRoute
+  '/workspace': typeof WorkspaceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/materials' | '/translate' | '/voice' | '/workflow' | '/workspace'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/materials' | '/translate' | '/voice' | '/workflow' | '/workspace'
+  id:
+    | '__root__'
+    | '/'
+    | '/materials'
+    | '/translate'
+    | '/voice'
+    | '/workflow'
+    | '/workspace'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MaterialsRoute: typeof MaterialsRoute
+  TranslateRoute: typeof TranslateRoute
+  VoiceRoute: typeof VoiceRoute
+  WorkflowRoute: typeof WorkflowRoute
+  WorkspaceRoute: typeof WorkspaceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/materials': {
+      id: '/materials'
+      path: '/materials'
+      fullPath: '/materials'
+      preLoaderRoute: typeof MaterialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/translate': {
+      id: '/translate'
+      path: '/translate'
+      fullPath: '/translate'
+      preLoaderRoute: typeof TranslateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voice': {
+      id: '/voice'
+      path: '/voice'
+      fullPath: '/voice'
+      preLoaderRoute: typeof VoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workflow': {
+      id: '/workflow'
+      path: '/workflow'
+      fullPath: '/workflow'
+      preLoaderRoute: typeof WorkflowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workspace': {
+      id: '/workspace'
+      path: '/workspace'
+      fullPath: '/workspace'
+      preLoaderRoute: typeof WorkspaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MaterialsRoute: MaterialsRoute,
+  TranslateRoute: TranslateRoute,
+  VoiceRoute: VoiceRoute,
+  WorkflowRoute: WorkflowRoute,
+  WorkspaceRoute: WorkspaceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
