@@ -11,7 +11,7 @@ export type Language = {
 };
 
 export const LANGUAGES: Language[] = [
-  { code: "ho", name: "Ho", native: "𑢹𑣉𑣉", speakers: "12,400 students", pack: "42 MB" },
+  { code: "ho", name: "Ho", native: "हो", speakers: "12,400 students", pack: "42 MB" },
   { code: "mundari", name: "Mundari", native: "मुंडारी", speakers: "8,900 students", pack: "48 MB" },
   { code: "santhali", name: "Santhali", native: "ᱥᱟᱱᱛᱟᱲᱤ", speakers: "6,100 students", pack: "51 MB" },
 ];
