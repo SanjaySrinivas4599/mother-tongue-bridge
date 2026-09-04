@@ -17,7 +17,7 @@ export const LANGUAGES: Language[] = [
 ];
 
 export function getLanguage(code: LangCode): Language {
-  return LANGUAGES.find((l) => l.code === code) ?? LANGUAGES[0];
+  return LANGUAGES.find((l) => l.code === code) ?? (LANGUAGES[0] as Language);
 }
 
 const STORAGE_KEY = "bhashamitra.language";
